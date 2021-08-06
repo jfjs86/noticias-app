@@ -18,6 +18,11 @@ const headers = new HttpHeaders(
 })
 export class NoticiasService {
 
+  pages : number = 0;
+
+  actualCategory:string ='';
+  categoryPage:number =0;
+
   constructor(private httpClient:HttpClient) { }
 
   executeQuery<T>(query:string){
@@ -29,12 +34,20 @@ export class NoticiasService {
   }
 
   getTopHeadlines(){
-    //return this.httpClient.get<ResponseTopHeadlines>(`https://newsapi.org/v2/everything?q=tesla&from=2021-07-03&sortBy=publishedAt&apiKey=363f694cad91452ca43ede5988c7a5b9`);
-    return  this.executeQuery<ResponseTopHeadlines>(`/top-headlines?country=co`);
+    this.pages++;
+    console.log('Pages = '+this.pages)
+    return  this.executeQuery<ResponseTopHeadlines>(`/top-headlines?country=co&page=${this.pages}`);
   }
 
   getTopHeadlinesCategories(category:string){
-    //return this.httpClient.get<ResponseTopHeadlines>(`https://newsapi.org/v2/top-headlines/sources?category=businessapiKey=363f694cad91452ca43ede5988c7a5b9`);
-    return this.executeQuery<ResponseTopHeadlines>(`/top-headlines?country=co&category=${category}`);
+    
+    if(this.actualCategory===category){
+      this.categoryPage++;
+    }else{
+      this.categoryPage = 1;
+      this.actualCategory = category;
+    }
+
+    return this.executeQuery<ResponseTopHeadlines>(`/top-headlines?country=co&category=${category}&page=${this.categoryPage}`);
   }
 }

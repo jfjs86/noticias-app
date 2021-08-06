@@ -3,12 +3,21 @@
   <ion-card-header>
     <ion-card-subtitle>
       <span class="text-primary">{{index+1}}. </span>
-      <span class="news-source-name">{{new.source.name}}</span>              
+      <span class="news-source-name">{{new.source.name}}</span> 
+      
+      <div class="news-options">
+        <ion-button (click)="launchMenu()" fill="clear">
+          <ion-icon slot="end" name="ellipsis-horizontal"></ion-icon>
+        </ion-button>
+      </div>
+
     </ion-card-subtitle>
-    <ion-card-title>{{new.title}}</ion-card-title>
+    <ion-card-title (click)="show()" >{{new.title}}</ion-card-title>
   </ion-card-header>
 
   <ion-img  *ngIf="new.urlToImage"
+            (click)="show()"
+            class="animated fadeIn"
             [src]="new.urlToImage"></ion-img>
 
   <ion-card-content>
