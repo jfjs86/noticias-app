@@ -15,7 +15,9 @@
         "@angular/platform-browser": "~12.1.1",
         "@angular/platform-browser-dynamic": "~12.1.1",
         "@angular/router": "~12.1.1",
+        "@angular/service-worker": "~12.1.1",
         "@capacitor/core": "3.1.2",
+        "@ionic-native/core": "^5.35.0",
         "@ionic-native/in-app-browser": "^5.35.0",
         "@ionic-native/social-sharing": "^5.35.0",
         "@ionic/angular": "^5.5.2",
@@ -24,6 +26,7 @@
         "cordova-plugin-inappbrowser": "^5.0.0",
         "cordova-plugin-x-socialsharing": "^6.0.3",
         "localforage-cordovasqlitedriver": "^1.8.0",
+        "newsapi": "^2.4.1",
         "rxjs": "~6.6.0",
         "tslib": "^2.2.0",
         "zone.js": "~0.11.4"
@@ -38,11 +41,11 @@
         "@angular/compiler": "~12.1.1",
         "@angular/compiler-cli": "~12.1.1",
         "@angular/language-service": "~12.0.1",
-        "@capacitor/cli": "3.1.2",
+        "@capacitor/cli": "^3.1.2",
         "@ionic/angular-toolkit": "^4.0.0",
         "@types/jasmine": "~3.6.0",
         "@types/jasminewd2": "~2.0.3",
-        "@types/node": "^12.11.1",
+        "@types/node": "^12.20.19",
         "@typescript-eslint/eslint-plugin": "4.16.1",
         "@typescript-eslint/parser": "4.16.1",
         "cordova-sqlite-storage": "^6.0.0",
@@ -61,22 +64,6 @@
         "protractor": "~7.0.0",
         "ts-node": "~8.3.0",
         "typescript": "~4.2.4"
-      }
-    },
-    "node_modules/@angular-devkit/architect": {
-      "version": "0.1200.5",
-      "resolved": "https://registry.npmjs.org/@angular-devkit/architect/-/architect-0.1200.5.tgz",
-      "integrity": "sha512-222VZ4OeaDK3vON8V5m+w15SRWfUs5uOb4H9ij/H9/6tyHD83uWfCDoOGg+ax4wJVdWEFJIS+Vn4ijGcZCq9WQ==",
-      "dev": true,
-      "peer": true,
-      "dependencies": {
-        "@angular-devkit/core": "12.0.5",
-        "rxjs": "6.6.7"
-      },
-      "engines": {
-        "node": "^12.14.1 || >=14.0.0",
-        "npm": "^6.11.0 || ^7.5.6",
-        "yarn": ">= 1.13.0"
       }
     },
     "node_modules/@angular-devkit/build-angular": {
@@ -386,26 +373,6 @@
         "ajv": {
           "optional": true
         }
-      }
-    },
-    "node_modules/@angular-devkit/core": {
-      "version": "12.0.5",
-      "resolved": "https://registry.npmjs.org/@angular-devkit/core/-/core-12.0.5.tgz",
-      "integrity": "sha512-zVSQV+8/vjUjsUKGlj8Kf5LioA6AXJTGI0yhHW9q1dFX4dPpbW63k0R1UoIB2wJ0F/AbYVgpnPGPe9BBm2fvZA==",
-      "dev": true,
-      "peer": true,
-      "dependencies": {
-        "ajv": "8.2.0",
-        "ajv-formats": "2.0.2",
-        "fast-json-stable-stringify": "2.1.0",
-        "magic-string": "0.25.7",
-        "rxjs": "6.6.7",
-        "source-map": "0.7.3"
-      },
-      "engines": {
-        "node": "^12.14.1 || >=14.0.0",
-        "npm": "^6.11.0 || ^7.5.6",
-        "yarn": ">= 1.13.0"
       }
     },
     "node_modules/@angular-devkit/schematics": {
@@ -798,6 +765,24 @@
         "@angular/core": "12.1.4",
         "@angular/platform-browser": "12.1.4",
         "rxjs": "^6.5.3"
+      }
+    },
+    "node_modules/@angular/service-worker": {
+      "version": "12.1.5",
+      "resolved": "https://registry.npmjs.org/@angular/service-worker/-/service-worker-12.1.5.tgz",
+      "integrity": "sha512-zx0LWLmDs0GHlL1CJorU9QcitI5KaCGEV0j79i5BVOf+RXD49VGtQjNP5DxbACO62f+Zh7Espsvy8epr8vhP+w==",
+      "dependencies": {
+        "tslib": "^2.2.0"
+      },
+      "bin": {
+        "ngsw-config": "ngsw-config.js"
+      },
+      "engines": {
+        "node": "^12.14.1 || >=14.0.0"
+      },
+      "peerDependencies": {
+        "@angular/common": "12.1.5",
+        "@angular/core": "12.1.5"
       }
     },
     "node_modules/@babel/code-frame": {
@@ -2617,7 +2602,6 @@
       "version": "5.35.0",
       "resolved": "https://registry.npmjs.org/@ionic-native/core/-/core-5.35.0.tgz",
       "integrity": "sha512-x2mShlaLOzCxwdqvPOvUFX4g0ctMvEYiYak6Hlh+HP9eNWfruT0EcMoXs6KSvIRFRsyFaYAXHyDZseKtB3aqsA==",
-      "peer": true,
       "dependencies": {
         "@types/cordova": "latest"
       },
@@ -3295,9 +3279,9 @@
       "dev": true
     },
     "node_modules/@types/node": {
-      "version": "12.20.18",
-      "resolved": "https://registry.npmjs.org/@types/node/-/node-12.20.18.tgz",
-      "integrity": "sha512-YoTiIwdKxM3VLiY2sM05x4iGuTveYiCcDaUVmo1L5ndrXxPGW/NEoZu+pGcBirziomizcZsnsQoemikKcB2fRA==",
+      "version": "12.20.19",
+      "resolved": "https://registry.npmjs.org/@types/node/-/node-12.20.19.tgz",
+      "integrity": "sha512-niAuZrwrjKck4+XhoCw6AAVQBENHftpXw9F4ryk66fTgYaKQ53R4FI7c9vUGGw5vQis1HKBHDR1gcYI/Bq1xvw==",
       "dev": true
     },
     "node_modules/@types/parse-json": {
@@ -3976,24 +3960,6 @@
       "dev": true,
       "peerDependencies": {
         "ajv": ">=5.0.0"
-      }
-    },
-    "node_modules/ajv-formats": {
-      "version": "2.0.2",
-      "resolved": "https://registry.npmjs.org/ajv-formats/-/ajv-formats-2.0.2.tgz",
-      "integrity": "sha512-Brah4Uo5/U8v76c6euTwtjVFFaVishwnJrQBYpev1JRh4vjA1F4HY3UzQez41YUCszUCXKagG8v6eVRBHV1gkw==",
-      "dev": true,
-      "peer": true,
-      "dependencies": {
-        "ajv": "^8.0.0"
-      },
-      "peerDependencies": {
-        "ajv": "^8.0.0"
-      },
-      "peerDependenciesMeta": {
-        "ajv": {
-          "optional": true
-        }
       }
     },
     "node_modules/alphanum-sort": {
@@ -5685,7 +5651,6 @@
       "version": "3.15.1",
       "resolved": "https://registry.npmjs.org/core-js/-/core-js-3.15.1.tgz",
       "integrity": "sha512-h8VbZYnc9pDzueiS2610IULDkpFFPunHwIpl8yRwFahAEEdSpHlTy3h3z3rKq5h11CaUdBEeRViu9AYvbxiMeg==",
-      "dev": true,
       "hasInstallScript": true,
       "funding": {
         "type": "opencollective",
@@ -11748,11 +11713,28 @@
       "integrity": "sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==",
       "dev": true
     },
+    "node_modules/newsapi": {
+      "version": "2.4.1",
+      "resolved": "https://registry.npmjs.org/newsapi/-/newsapi-2.4.1.tgz",
+      "integrity": "sha512-yw/aZBgDwNbNMqQ1V7XFKdW2jvL8Fh4qMiU0Awin87Rt6lbPnS8OuiLaL15Ws5X82/EXhzNf/djAlPHOWVgMJg==",
+      "dependencies": {
+        "core-js": "^3.6.5",
+        "node-fetch": "^2.6.0"
+      }
+    },
     "node_modules/nice-try": {
       "version": "1.0.5",
       "resolved": "https://registry.npmjs.org/nice-try/-/nice-try-1.0.5.tgz",
       "integrity": "sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==",
       "dev": true
+    },
+    "node_modules/node-fetch": {
+      "version": "2.6.1",
+      "resolved": "https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.1.tgz",
+      "integrity": "sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==",
+      "engines": {
+        "node": "4.x || >=6.0.0"
+      }
     },
     "node_modules/node-forge": {
       "version": "0.10.0",
@@ -20277,17 +20259,6 @@
     }
   },
   "dependencies": {
-    "@angular-devkit/architect": {
-      "version": "0.1200.5",
-      "resolved": "https://registry.npmjs.org/@angular-devkit/architect/-/architect-0.1200.5.tgz",
-      "integrity": "sha512-222VZ4OeaDK3vON8V5m+w15SRWfUs5uOb4H9ij/H9/6tyHD83uWfCDoOGg+ax4wJVdWEFJIS+Vn4ijGcZCq9WQ==",
-      "dev": true,
-      "peer": true,
-      "requires": {
-        "@angular-devkit/core": "12.0.5",
-        "rxjs": "6.6.7"
-      }
-    },
     "@angular-devkit/build-angular": {
       "version": "12.1.4",
       "resolved": "https://registry.npmjs.org/@angular-devkit/build-angular/-/build-angular-12.1.4.tgz",
@@ -20486,21 +20457,6 @@
             "ajv": "^8.0.0"
           }
         }
-      }
-    },
-    "@angular-devkit/core": {
-      "version": "12.0.5",
-      "resolved": "https://registry.npmjs.org/@angular-devkit/core/-/core-12.0.5.tgz",
-      "integrity": "sha512-zVSQV+8/vjUjsUKGlj8Kf5LioA6AXJTGI0yhHW9q1dFX4dPpbW63k0R1UoIB2wJ0F/AbYVgpnPGPe9BBm2fvZA==",
-      "dev": true,
-      "peer": true,
-      "requires": {
-        "ajv": "8.2.0",
-        "ajv-formats": "2.0.2",
-        "fast-json-stable-stringify": "2.1.0",
-        "magic-string": "0.25.7",
-        "rxjs": "6.6.7",
-        "source-map": "0.7.3"
       }
     },
     "@angular-devkit/schematics": {
@@ -20749,6 +20705,14 @@
       "version": "12.1.4",
       "resolved": "https://registry.npmjs.org/@angular/router/-/router-12.1.4.tgz",
       "integrity": "sha512-wbw/w1yM/GiCnQPykQ7rHkywqQA5LPF5/MRa4Khi7BcpJXgutG9h/40HREsQzzYY46+qhXmST8A3E5PNgURsbw==",
+      "requires": {
+        "tslib": "^2.2.0"
+      }
+    },
+    "@angular/service-worker": {
+      "version": "12.1.5",
+      "resolved": "https://registry.npmjs.org/@angular/service-worker/-/service-worker-12.1.5.tgz",
+      "integrity": "sha512-zx0LWLmDs0GHlL1CJorU9QcitI5KaCGEV0j79i5BVOf+RXD49VGtQjNP5DxbACO62f+Zh7Espsvy8epr8vhP+w==",
       "requires": {
         "tslib": "^2.2.0"
       }
@@ -22042,7 +22006,6 @@
       "version": "5.35.0",
       "resolved": "https://registry.npmjs.org/@ionic-native/core/-/core-5.35.0.tgz",
       "integrity": "sha512-x2mShlaLOzCxwdqvPOvUFX4g0ctMvEYiYak6Hlh+HP9eNWfruT0EcMoXs6KSvIRFRsyFaYAXHyDZseKtB3aqsA==",
-      "peer": true,
       "requires": {
         "@types/cordova": "latest"
       }
@@ -22583,9 +22546,9 @@
       "dev": true
     },
     "@types/node": {
-      "version": "12.20.18",
-      "resolved": "https://registry.npmjs.org/@types/node/-/node-12.20.18.tgz",
-      "integrity": "sha512-YoTiIwdKxM3VLiY2sM05x4iGuTveYiCcDaUVmo1L5ndrXxPGW/NEoZu+pGcBirziomizcZsnsQoemikKcB2fRA==",
+      "version": "12.20.19",
+      "resolved": "https://registry.npmjs.org/@types/node/-/node-12.20.19.tgz",
+      "integrity": "sha512-niAuZrwrjKck4+XhoCw6AAVQBENHftpXw9F4ryk66fTgYaKQ53R4FI7c9vUGGw5vQis1HKBHDR1gcYI/Bq1xvw==",
       "dev": true
     },
     "@types/parse-json": {
@@ -23087,16 +23050,6 @@
       "integrity": "sha512-DCRfO/4nQ+89p/RK43i8Ezd41EqdGIU4ld7nGF8OQ14oc/we5rEntLCUa7+jrn3nn83BosfwZA0wb4pon2o8iQ==",
       "dev": true,
       "requires": {}
-    },
-    "ajv-formats": {
-      "version": "2.0.2",
-      "resolved": "https://registry.npmjs.org/ajv-formats/-/ajv-formats-2.0.2.tgz",
-      "integrity": "sha512-Brah4Uo5/U8v76c6euTwtjVFFaVishwnJrQBYpev1JRh4vjA1F4HY3UzQez41YUCszUCXKagG8v6eVRBHV1gkw==",
-      "dev": true,
-      "peer": true,
-      "requires": {
-        "ajv": "^8.0.0"
-      }
     },
     "alphanum-sort": {
       "version": "1.0.2",
@@ -24417,8 +24370,7 @@
     "core-js": {
       "version": "3.15.1",
       "resolved": "https://registry.npmjs.org/core-js/-/core-js-3.15.1.tgz",
-      "integrity": "sha512-h8VbZYnc9pDzueiS2610IULDkpFFPunHwIpl8yRwFahAEEdSpHlTy3h3z3rKq5h11CaUdBEeRViu9AYvbxiMeg==",
-      "dev": true
+      "integrity": "sha512-h8VbZYnc9pDzueiS2610IULDkpFFPunHwIpl8yRwFahAEEdSpHlTy3h3z3rKq5h11CaUdBEeRViu9AYvbxiMeg=="
     },
     "core-js-compat": {
       "version": "3.16.0",
@@ -29179,11 +29131,25 @@
       "integrity": "sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==",
       "dev": true
     },
+    "newsapi": {
+      "version": "2.4.1",
+      "resolved": "https://registry.npmjs.org/newsapi/-/newsapi-2.4.1.tgz",
+      "integrity": "sha512-yw/aZBgDwNbNMqQ1V7XFKdW2jvL8Fh4qMiU0Awin87Rt6lbPnS8OuiLaL15Ws5X82/EXhzNf/djAlPHOWVgMJg==",
+      "requires": {
+        "core-js": "^3.6.5",
+        "node-fetch": "^2.6.0"
+      }
+    },
     "nice-try": {
       "version": "1.0.5",
       "resolved": "https://registry.npmjs.org/nice-try/-/nice-try-1.0.5.tgz",
       "integrity": "sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==",
       "dev": true
+    },
+    "node-fetch": {
+      "version": "2.6.1",
+      "resolved": "https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.1.tgz",
+      "integrity": "sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw=="
     },
     "node-forge": {
       "version": "0.10.0",
