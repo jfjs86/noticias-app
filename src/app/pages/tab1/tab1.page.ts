@@ -24,7 +24,7 @@ export class Tab1Page implements OnInit{
   loadNews( event? ){
 
     
-    this.noticiasService.getTopHeadlines().subscribe(res=>{
+    this.noticiasService.getTopHeadlines().subscribe((res:ResponseTopHeadlines)=>{
 
       console.log('noticias',res);
       this.news.push(...res.articles);

@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSegment } from '@ionic/angular';
 import { NoticiasService } from '../../services/noticias.service';
-import { Article } from '../../interfaces/interfaces';
+import { Article, ResponseTopHeadlines } from '../../interfaces/interfaces';
 
 @Component({
   selector: 'app-tab2',
@@ -30,7 +30,7 @@ export class Tab2Page implements OnInit{
   loadNews(category:string, event?){
 
     this.noticiasService.getTopHeadlinesCategories(category)
-    .subscribe(res =>{
+    .subscribe((res:ResponseTopHeadlines) =>{
         console.log(res);
         this.news.push(... res.articles);
         console.log('Numero de articulos = '+res.articles.length);

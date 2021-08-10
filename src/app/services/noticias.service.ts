@@ -2,6 +2,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ResponseTopHeadlines } from '../interfaces/interfaces';
 import { environment } from '../../environments/environment';
+import '@capacitor-community/http';
+import { Plugins } from '@capacitor/core'
+import { isPlatform } from '@ionic/angular';
+import { from } from 'rxjs';
+import { map } from 'rxjs/operators'
+
 
 
 const apiKey = environment.apiKey;
@@ -51,10 +57,10 @@ export class NoticiasService {
 
   executeQuery<T>(query:string){
 
-    //query = proxyUrl + apiUrl + query;
-    query = '/api' + query;
-    return this.httpClient.get<T>(query, reqOptions);
-    //return this.httpClient.get<T>(query, {headers});
+    query = proxyUrl + apiUrl + query;
+    //query = '/api' + query;
+    //return this.httpClient.get<T>(query, reqOptions);
+    return this.httpClient.get<T>(query, {headers});
 
   }
 
@@ -64,6 +70,7 @@ export class NoticiasService {
     //console.log('Response',this.executeQuery<ResponseTopHeadlines>(`/top-headlines?country=co&page=${this.pages}`));
     //this.getTopHeadlinesApi();
     return  this.executeQuery<ResponseTopHeadlines>(`/top-headlines?country=co&page=${this.pages}`);
+    //return this.getRequest<ResponseTopHeadlines>(`/top-headlines?country=co&page=${this.pages}`);
   }
 
   
@@ -77,6 +84,7 @@ export class NoticiasService {
     }
 
     return this.executeQuery<ResponseTopHeadlines>(`/top-headlines?country=co&category=${category}&page=${this.categoryPage}`);
+    //return this.getRequest<ResponseTopHeadlines>(`/top-headlines?country=co&category=${category}&page=${this.categoryPage}`);
   }
 
   getTopHeadlinesApi(){
@@ -99,6 +107,26 @@ export class NoticiasService {
       */
     });
 
+  }
+
+  getRequest<T>(url){
+
+    if(isPlatform('cordova')){
+
+      const {Http} = Plugins;
+
+      return from(Http.request({
+        method :  'GET',
+        url : apiUrl+url
+
+      }).pipe(
+        map((result:ResponseTopHeadlines) => result)
+      ))
+
+    }else{
+      console.log('Error capacitor Plataform')
+      return this.executeQuery<ResponseTopHeadlines>(url);;
+    }
   }
 
 
